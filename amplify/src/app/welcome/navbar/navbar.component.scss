@@ -1,0 +1,69 @@
+@import '../../../assets/sharedVariables';
+@import '../../../assets/sharedMixins';
+@import '../../../assets/sharedButtons';
+
+#glass.navbar {
+  @include glassmorphism();
+  color: $white;
+  .nav-link {
+    color: $white;
+    text-shadow: 2px 2px 3px $color-shadow-dark;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link.active {
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.14);
+    text-shadow: 1px 1px 2px $color-shadow-glow-blue-strong;
+  }
+}
+
+.nav-item:hover::after {
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 2px;
+  background-color: $white;
+  color: $primary;
+  border: 1px solid $color-shadow-glow-blue-strong;
+  border-radius: 4px;
+  top: 50px;
+  animation: width 1s alternate;
+}
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50px;
+  }
+}
+.navbar {
+  max-width: 80%;
+  min-width: fit-content;
+}
+
+#glass {
+  border-radius: 40px;
+}
+.nav-button {
+  min-width: 150px;
+  gap: 2px;
+}
+.navbar-brand {
+  font-size: $h2-font-size;
+  font-weight: $font-weight-semibold;
+  color: $white;
+  letter-spacing: 0.4px;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+.navbar-toggler {
+  font-size: small;
+  padding: clamp(10px, 0.5rem, 1.2rem);
+}

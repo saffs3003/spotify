@@ -1,0 +1,63 @@
+@import '../../../../assets/sharedButtons';
+@import '../../../../assets/sharedMixins';
+@import '../../../../assets/sharedVariables';
+
+.ArtistCoverImage {
+  display: fixed;
+  top: 0%;
+  width: 100%;
+  height: 200px;
+  background-position: 50% 25%;
+  border-radius: 20px;
+  padding: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.ArtistInfo {
+  position: relative;
+  bottom: -50%;
+
+  display: flex;
+  flex-direction: column;
+  h3,
+  p {
+    margin: 0;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// app-music-player {
+//   position: fixed;
+//   bottom: 4px;
+//   width: 80%;
+//   align-self: center;
+// }
+.AddSongs {
+  display: flex;
+  // min-width: 400px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 14px, 16px);
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+}
+.upcommingEvent {
+  @include glassmorphism;
+  width: 200px;
+  border-radius: $radius-lg;
+  padding: clamp($padding-sm, $padding-md, $padding-lg);
+}
+
+.upcommingEvents {
+  display: flex;
+  gap: $gap-md;
+}

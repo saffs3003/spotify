@@ -1,0 +1,28 @@
+<div class="musicCard" (mousemove)="onMouseMove($event)" (mouseleave)="resetTilt()" #musicCard>
+  <img [src]="song.image" alt="album cover" class="albumCover" />
+
+  <div class="songInfo">
+    <div class="title">{{ song.title }}</div>
+    <div class="artist">{{ song.artist }}</div>
+  </div>
+  <input type="range" class="progress-bar" />
+  <!-- <input
+    type="range"
+    class="progress-bar"
+    [value]="currentTime"
+    [max]="duration"
+    (input)="onSeek($event)"
+  /> -->
+
+  <div class="controls">
+    <button class="controlBtn">
+      <mat-icon>skip_previous </mat-icon>
+    </button>
+    <button class="controlBtn">
+      <mat-icon>play_circle </mat-icon>
+    </button>
+    <button class="controlBtn">
+      <mat-icon>skip_next</mat-icon>
+    </button>
+  </div>
+</div>

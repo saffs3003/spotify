@@ -1,0 +1,28 @@
+@import '../../../../assets/sharedButtons';
+@import '../../../../assets/sharedMixins';
+@import '../../../../assets/sharedVariables';
+
+.showCard {
+  @include glassmorphism;
+  max-width: 280px;
+
+  padding: clamp(4px, 8px, 12px);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  h3,
+  p {
+    word-wrap: break-word;
+    text-wrap: wrap;
+  }
+}
+
+button {
+  width: 100%;
+  color: black;
+}
+@media screen and (max-width: 720px) {
+  .showCard {
+    width: fit-content;
+  }
+}

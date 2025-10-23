@@ -1,0 +1,101 @@
+@import '../../../../assets/sharedButtons';
+@import '../../../../assets/sharedMixins';
+@import '../../../../assets/sharedVariables';
+
+.section-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.show-more-btn {
+  @include glassmorphism;
+
+  z-index: 10;
+
+  border: none;
+
+  cursor: pointer;
+  right: px;
+  padding: $padding-sm;
+  transition: background-color 0.3s ease;
+}
+.song-show {
+  position: absolute;
+  top: 70px;
+}
+.song-artist {
+  position: absolute;
+  top: 75%;
+}
+.songContainer {
+  display: flex;
+  gap: 15px;
+  overflow: hidden;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
+
+.songContainer.expanded {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  overflow: visible;
+  max-height: none;
+}
+
+.songWrapper {
+  flex: 0 0 auto;
+  min-width: 200px;
+}
+
+.songContainer.expanded .songWrapper {
+  flex: none;
+  min-width: unset;
+}
+
+.artistContainer {
+  display: flex;
+  gap: 15px;
+  overflow: hidden;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
+
+.artistContainer.expanded {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  overflow: visible;
+  max-height: none;
+}
+
+.artistWrapper {
+  flex: 0 0 auto;
+  min-width: 200px;
+}
+
+.artistContainer.expanded .artistWrapper {
+  flex: none;
+  min-width: unset;
+}
+
+@media (max-width: 768px) {
+  .songContainer,
+  .artistContainer {
+    gap: 10px;
+  }
+
+  .songWrapper,
+  .artistWrapper {
+    min-width: 150px;
+  }
+
+  .songContainer.expanded,
+  .artistContainer.expanded {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+}

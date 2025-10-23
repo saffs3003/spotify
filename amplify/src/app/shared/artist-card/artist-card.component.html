@@ -1,0 +1,12 @@
+<div class="artistCard" (click)="navigateToProfile()">
+  <img
+    class="artistImg"
+    [src]="artistImg"
+    (error)="artistImg = '../../../assets/images/defaultPfp.jpg'"
+    alt="Artist Image"
+  />
+  <div class="artistInfo">
+    <p class="artistName">{{ artistName }}</p>
+    <p>Artist</p>
+  </div>
+</div>

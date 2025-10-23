@@ -1,0 +1,24 @@
+<section class="userLayout">
+  <app-navbar></app-navbar>
+
+  <div class="container">
+    <app-sidebar
+      [routes]="[
+        { route: 'dashboard', icon: 'home', linkText: 'Home' },
+        { route: 'songs', icon: 'music_note', linkText: 'Songs' },
+        { route: 'profile', icon: 'person', linkText: 'Artists' },
+        { route: 'mybookings', icon: 'calendar_today', linkText: 'Events' }
+      ]"
+    ></app-sidebar>
+
+    <div
+      class="main-content"
+      #userCard
+      (mousemove)="onMouseMove($event)"
+      (mouseleave)="resetTilt()"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-music-player class="glass"></app-music-player>
+</section>

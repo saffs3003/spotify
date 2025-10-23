@@ -1,0 +1,32 @@
+<section class="sidebar">
+  <nav>
+    <ul>
+      <li
+        class="linksList linkContainer"
+        *ngFor="let alink of routes"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a [routerLink]="alink.route" class="sideLinks">
+          <mat-icon>{{ alink.icon }}</mat-icon>
+          <span id="linkText">{{ alink.linkText }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
+<nav class="mobile-navbar">
+  <ul class="mobile-nav-list">
+    <li
+      *ngFor="let alink of routes"
+      class="mobile-nav-item"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="active"
+    >
+      <a [routerLink]="alink.route" class="mobile-nav-link">
+        <mat-icon>{{ alink.icon }}</mat-icon>
+      </a>
+    </li>
+  </ul>
+</nav>

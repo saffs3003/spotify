@@ -1,0 +1,23 @@
+<h2>Your Booking</h2>
+<section class="userBookings">
+  <div *ngFor="let event of Events">
+    <div class="concertTicket">
+      <div class="ticketHeader">
+        <h2>LIVE IN CONCERT</h2>
+        <p class="artistName">{{ event.title }}</p>
+      </div>
+
+      <div class="ticketBody">
+        <div class="ticketInfo">
+          <p><strong>Date:</strong>{{ event.date }}</p>
+          <p><strong>Time:</strong>{{ event.time }}</p>
+          <p><strong>Venue:</strong> {{ event.location }}</p>
+        </div>
+        <div class="ticketCode">
+          <p>#A5XP-2931</p>
+          <p class="seat">Section B • Row 12 • Seat 45</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

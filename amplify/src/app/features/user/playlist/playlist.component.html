@@ -1,0 +1,11 @@
+<!-- <p>playlist works!</p> -->
+<section>
+  <div *ngFor="let song of songs">
+    <app-horizontal-music-card
+      [songTitle]="song.title"
+      [artistName]="song.artistName"
+      [coverArt]="'http://localhost:3000/uploads/images/' + song.coverArt"
+      [songId]="song.id"
+    ></app-horizontal-music-card>
+  </div>
+</section>

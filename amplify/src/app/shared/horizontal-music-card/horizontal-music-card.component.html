@@ -1,0 +1,18 @@
+<!-- <p>horizontal-music-card works!</p> -->
+<div class="Card">
+  <div class="Song">
+    <img [src]="coverArt" alt="" />
+    <div class="SongInfo">
+      <p class="SongName">{{ songTitle }}</p>
+      <p class="ArtistName">{{ artistName }}</p>
+    </div>
+  </div>
+  <div class="audioControls">
+    <button type="button" (click)="toggleFavorite()">
+      <mat-icon [class.favorite-active]="isFavorite">favorite</mat-icon>
+    </button>
+    <button type="button" class="volume-btn">
+      <mat-icon>volume_up</mat-icon>
+    </button>
+  </div>
+</div>

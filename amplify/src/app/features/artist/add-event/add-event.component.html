@@ -1,0 +1,49 @@
+<section>
+  <mat-dialog-content class="mat-typography">
+    <div class="modalHeader">
+      <h3>Add New Songs</h3>
+      <button class="closeModalBtn" matButton mat-dialog-close>
+        <mat-icon> close</mat-icon>
+      </button>
+    </div>
+
+    <form (submit)="getEventInfo()" [formGroup]="EventForm">
+      <label for="">Event Name </label>
+      <input formControlName="EventTitle" type="text" name="" id="" />
+      <div
+        *ngIf="EventForm.get('EventTitle')?.touched && EventForm.get('EventTitle')?.invalid"
+        class="error"
+      >
+        Event Title is required
+      </div>
+      <label for="">Event Location</label>
+      <input formControlName="EventLocation" type="text" name="" id="" />
+      <div
+        *ngIf="EventForm.get('EventLocation')?.touched && EventForm.get('EventLocation')?.invalid"
+        class="error"
+      >
+        Event Location is required
+      </div>
+      <label for="">Event Date </label>
+      <input formControlName="EventDate" type="date" name="" id="" />
+      <div
+        *ngIf="EventForm.get('EventDate')?.touched && EventForm.get('EventDate')?.invalid"
+        class="error"
+      >
+        Event Date is required
+      </div>
+      <label for="">Event Time</label>
+
+      <input formControlName="EventTime" type="time" name="" id="" />
+      <div
+        *ngIf="EventForm.get('EventTime')?.touched && EventForm.get('EventTime')?.invalid"
+        class="error"
+      >
+        Event Time is required
+      </div>
+      <button matButton [mat-dialog-close]="true" [disabled]="EventForm.invalid" type="submit">
+        Add
+      </button>
+    </form>
+  </mat-dialog-content>
+</section>

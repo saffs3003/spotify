@@ -1,0 +1,21 @@
+<section class="adminSide">
+  <app-navbar></app-navbar>
+
+  <section class="adminContent">
+    <div class="sidebar">
+      <div class="navLinks" *ngFor="let route of routes">
+        <a [routerLink]="route.link" class="nav-link active">
+          <mat-icon>{{ route.icon }}</mat-icon>
+          <span>{{ route.text }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="centralContent">
+      <div class="content">
+        <h1>Dashboard</h1>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </section>
+</section>

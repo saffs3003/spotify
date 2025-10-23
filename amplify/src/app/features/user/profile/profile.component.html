@@ -1,0 +1,33 @@
+<section>
+  <div
+    class="ArtistCoverImage"
+    [ngStyle]="{ width: '100%', 'background-position': '50% 15%', 'background-image': coverImage }"
+  >
+    <div class="ArtistInfo">
+      <p class="artistTitle">Artist</p>
+      <h3 class="artistName">{{ artistName }}</h3>
+      <p class="artistSongs" *ngIf="musicCards.length > 0">{{ musicCards.length }} songs</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <h3 *ngIf="musicCards.length <= 0 && upcomingEvents.length <= 0">
+      Artist has Not Added any songs or Events
+    </h3>
+    <div *ngIf="musicCards.length > 0" class="TopSongs">
+      <h4>Song Collection of the Artist</h4>
+      <div *ngFor="let song of musicCards">
+        <app-horizontal-music-card
+          [songTitle]="song.title"
+          [artistName]="artistName"
+          [coverArt]="'http://localhost:3000/uploads/images/' + song.coverArt"
+        ></app-horizontal-music-card>
+      </div>
+    </div>
+
+    <div *ngIf="upcomingEvents.length > 0" class="upcommingEvents">
+      <h4 style="text-wrap: nowrap; margin-bottom: 20px">Upcoming Shows</h4>
+      <app-artist-show [Event]="upcomingEvents"></app-artist-show>
+    </div>
+  </div>
+</section>

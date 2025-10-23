@@ -1,0 +1,104 @@
+<h2 class="h5 fw-bold mb-4">Unapproved Songs</h2>
+
+<div class="d-none d-md-block table-responsive">
+  <table
+    *ngIf="unapprovedSongs.length > 0"
+    class="table table-hover align-middle tableDesign table-striped"
+  >
+    <thead class="table-light">
+      <tr>
+        <th>Title</th>
+        <th>Artist Email</th>
+        <th>Genre</th>
+        <th>Cover Art</th>
+        <th>Audio</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let song of unapprovedSongs">
+        <td>{{ song.title }}</td>
+        <td>{{ song.artistEmail }}</td>
+        <td>{{ song.genre }}</td>
+        <td>
+          <img
+            [src]="'http://localhost:3000/uploads/images/' + song.coverArt"
+            alt="Cover"
+            class="img-fluid rounded"
+          />
+        </td>
+        <td>
+          <audio controls [src]="'http://localhost:3000/uploads/audio/' + song.audioPath"></audio>
+        </td>
+        <td>
+          <button class="btn btn-success btn-sm" (click)="approve(song.id)">Approve</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-md-none cardContainer">
+  <div *ngFor="let song of unapprovedSongs" class="card mb-3" style="width: 18rem">
+    <div class="card">
+      <img
+        [src]="'http://localhost:3000/uploads/images/' + song.coverArt"
+        alt="Cover"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ song.title }}</h5>
+        <p class="card-text"><strong>Artist Email:</strong> {{ song.artistEmail }}</p>
+        <p class="card-text"><strong>Genre:</strong> {{ song.genre }}</p>
+        <audio controls [src]="'http://localhost:3000/uploads/audio/' + song.audioPath"></audio>
+        <button class="btn" (click)="approve(song.id)">Approve</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h5 fw-bold mb-4">Unapproved Events</h2>
+
+<div class="d-none d-md-block table-responsive">
+  <table
+    *ngIf="unapprovedEvents.length > 0"
+    class="table table-hover align-middle tableDesign table-striped"
+  >
+    <thead class="table-light">
+      <tr>
+        <th>Title</th>
+        <th>Artist Email</th>
+        <th>Event Name</th>
+        <th>Event Location</th>
+        <th>Event Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of unapprovedEvents">
+        <td>{{ event.artistEmail }}</td>
+        <td>{{ event.title }}</td>
+
+        <td>{{ event.location }}</td>
+        <td>{{ event.time }}</td>
+
+        <td>
+          <button class="btn btn-success btn-sm" (click)="approveEvent(event.id)">Approve</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-md-none cardContainer">
+  <div *ngFor="let event of unapprovedEvents" class="card mb-3" style="width: 18rem">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Event Title</h5>
+        <p class="card-text"><strong>Artist Email:</strong> {{ event.artistEmail }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
+        <p class="card-text"><strong>Time:</strong> {{ event.time }}</p>
+        <button class="btn" (click)="approveEvent(event.id)">Approve</button>
+      </div>
+    </div>
+  </div>
+</div>

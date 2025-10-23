@@ -1,0 +1,36 @@
+<div class="popularSongs w-100 mb-3">
+  <h3>Popular Songs</h3>
+  <div class="section-header">
+    <button class="show-more-btn song-show" (click)="toggleSongsView()">
+      {{ showAllSongs ? 'Show Less' : 'Show More' }}
+    </button>
+  </div>
+  <div class="songContainer" [class.expanded]="showAllSongs">
+    <div class="songWrapper mt-1" #songwrapper *ngFor="let song of Songs">
+      <app-song-card
+        [songId]="song.id"
+        [songTitle]="song.title"
+        [songArtist]="song.artistName"
+        [songImg]="'http://localhost:3000/uploads/images/' + song.coverArt"
+      ></app-song-card>
+    </div>
+  </div>
+</div>
+
+<div class="popularArtist w-100 mt-1">
+  <h3>Popular Artists</h3>
+  <div class="section-header">
+    <button class="show-more-btn song-artist" (click)="toggleArtistsView()">
+      {{ showAllArtists ? 'Show Less' : 'Show More' }}
+    </button>
+  </div>
+  <div class="artistContainer" [class.expanded]="showAllArtists">
+    <div class="artistWrapper" *ngFor="let artist of Artists">
+      <app-artist-card
+        [artistImg]="'http://localhost:3000/uploads/images/' + artist.profile_image"
+        [artistName]="artist.name"
+        [artistId]="artist.id"
+      ></app-artist-card>
+    </div>
+  </div>
+</div>

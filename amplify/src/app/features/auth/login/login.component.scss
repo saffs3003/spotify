@@ -1,0 +1,171 @@
+@import '../../../../assets/sharedVariables';
+@import '../../../../assets/sharedMixins';
+@import '../../../../assets/sharedButtons';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(116, 1, 152, 0.8), rgba(144, 0, 255, 0) 70.71%),
+    linear-gradient(336deg, rgba(2, 2, 127, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  height: 100%;
+  width: 100vw;
+}
+
+.loginForm {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.formContainer {
+  @include glassmorphism;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  min-width: 200px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0px 0px 20px;
+    flex: 1;
+    max-width: 500px;
+  }
+  form {
+    display: flex;
+    gap: 12px;
+    height: 100%;
+    justify-content: center;
+    min-width: 250px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 12px;
+    padding: $padding-lg;
+    padding: clamp(20px, 2rem, 3rem);
+  }
+  .formWrapper {
+    flex: 1;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .Form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.2rem;
+      gap: 1.2rem;
+      min-width: 300px;
+      width: 80%;
+      label {
+        font-weight: 500;
+        color: black;
+      }
+      input {
+        @include glassmorphism;
+        background-color: $input-bg;
+        border-radius: 20px;
+        padding: $padding-sm;
+        padding: 5px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        &:focus {
+          transform: scale(1.03);
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+
+      button {
+        background-color: rgb(61, 59, 59);
+        border-radius: 30px;
+        color: white;
+        padding: 0.7rem 1.5rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+        border: none;
+
+        &:hover {
+          background-color: rgb(90, 88, 88);
+        }
+      }
+    }
+  }
+}
+
+.back {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-white-soft;
+  border-radius: 50%;
+  top: 5%;
+  left: 5%;
+
+  z-index: 100;
+  padding: 4px;
+  mat-icon {
+    font-size: 1.8rem;
+  }
+  animation: StepperMoveLeft 0.4s infinite alternate;
+}
+@keyframes StepperMoveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 720px) {
+  .formContainer {
+    flex-direction: column;
+
+    img {
+      display: none;
+    }
+
+    .Form {
+      width: 100%;
+    }
+  }
+  .back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+span {
+  font-size: $font-weight-base;
+  color: $white;
+  font-weight: $font-weight-base;
+}
+a:hover {
+  text-decoration: underline;
+
+  font-style: italic;
+}
+.error {
+  font-size: medium;
+  color: $errors;
+}

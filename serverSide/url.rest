@@ -1,0 +1,28 @@
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "email": "admin@admin.com", 
+    "name":"Admin",
+    "password": "admin123",
+    "role": "Admin"
+}
+
+###
+GET http://localhost:3000/api/admin-data
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ4NDA2NDA2LCJleHAiOjE3NDg0MTAwMDZ9.oe5maNs1jmkRALngVdI6qnPLp-Hh1dOve7C8dqIU9ic
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDkwNTI5NzksImV4cCI6MTc0OTA1NjU3OX0.3Co_swyIIU_6j9hnEDBEzu1WPe8d_ckxmy8NM6L9ZCs
+
+{
+  "email": "saffi2@gmail.com",
+  "password": "123"
+}
+
+
+###
+GET http://localhost:3000/api/users
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ4NDA2NDA2LCJleHAiOjE3NDg0MTAwMDZ9.oe5maNs1jmkRALngVdI6qnPLp-Hh1dOve7C8dqIU9ic
+###

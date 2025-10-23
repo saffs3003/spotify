@@ -1,0 +1,8 @@
+<div class="songCard" (click)="navigateToMusicPlayer()">
+  <img class="albumCover" [src]="songImg ? songImg : '../../../assets/1.jpg'" alt="" srcset="" />
+
+  <div class="songInfo">
+    <p class="songTitle">{{ songTitle }}</p>
+    <p class="songArtist">{{ songArtist }}</p>
+  </div>
+</div>

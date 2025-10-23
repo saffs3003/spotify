@@ -1,0 +1,116 @@
+@import '../../../assets/sharedVariables';
+@import '../../../assets/sharedMixins';
+@import '../../../assets/sharedButtons';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar {
+  @include glassmorphism(
+    $background-color: rgba(255, 255, 255, 0.05),
+    $blur-radius: 20px,
+    $border: 1px solid rgba(255, 255, 255, 0.15),
+    $box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15)
+  );
+  width: fit-content;
+  height: fit-content;
+  border-radius: 20px;
+  padding: 8px;
+  align-items: center;
+  li {
+    text-decoration: none;
+    padding: 8px;
+    list-style: none;
+    border-radius: $btn-border-radius;
+  }
+  ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sideLinks {
+    display: flex;
+    gap: 8px;
+  }
+  #linkText {
+    display: none;
+  }
+  &:hover {
+    #linkText {
+      display: block;
+    }
+  }
+}
+li:hover {
+  background-color: $color-white-translucent-strong;
+
+  cursor: pointer;
+  a,
+  mat-icon {
+    color: $dark;
+  }
+}
+li.active {
+  background-color: $color-white-translucent-strong;
+  cursor: pointer;
+  a,
+  mat-icon {
+    color: $dark;
+  }
+}
+.mobile-navbar {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+
+  li {
+    list-style: none;
+  }
+  .mobile-navbar {
+    @include glassmorphism(
+      $background-color: rgba(255, 255, 255, 0.05),
+      $blur-radius: 20px,
+      $border: 1px solid rgba(255, 255, 255, 0.15),
+      $box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15)
+    );
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+
+    .mobile-nav-list {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      mat-icon:hover {
+        color: white;
+      }
+      .mobile-nav-item {
+        a.mobile-nav-link {
+          color: white;
+          font-size: 24px;
+          padding: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $color-white-translucent-strong;
+          }
+        }
+      }
+    }
+  }
+}

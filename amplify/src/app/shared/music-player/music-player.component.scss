@@ -1,0 +1,102 @@
+.musicPlayer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px;
+  justify-content: space-between;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  min-width: fit-content;
+}
+.songContainer img {
+  object-fit: cover;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.songInfo {
+  display: flex;
+  flex-direction: column;
+}
+.songContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: hidden;
+}
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 30px;
+  min-width: fit-content;
+  width: 30%;
+  padding: 2px 12px;
+  gap: 10px;
+  align-items: center;
+  background-color: rgba(186, 186, 186, 0.299);
+}
+.playControls,
+.audioControls {
+  display: flex;
+  gap: 8px;
+}
+@media screen and (max-width: 800px) {
+  .musicPlayer {
+    border-radius: 0;
+    width: 100%;
+    padding: 6px 12px;
+  }
+}
+
+.playControls button,
+.Container button,
+.audioControls button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.playControls button:hover,
+.Container button:hover,
+.audioControls button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.playControls button:active,
+.Container button:active,
+.audioControls button:active {
+  transform: scale(0.95);
+}
+
+.favorite-active {
+  color: #ff4757 !important;
+}
+.songTitle,
+.Artis {
+  text-wrap: nowrap;
+}
+.songInfo {
+  overflow-x: hidden;
+}
+@media screen and (max-width: 400px) {
+  .songInfo {
+    display: none;
+  }
+  .Container {
+    width: fit-content;
+  }
+}

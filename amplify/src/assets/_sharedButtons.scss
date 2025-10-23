@@ -1,0 +1,43 @@
+@import '../assets/sharedMixins';
+@import '../assets/sharedVariables';
+
+$color-white-translucent-strong: rgba(255, 255, 255, 0.879);
+$color-white-translucent-medium: rgba(255, 255, 255, 0.479);
+button {
+  background: $color-white-translucent-medium;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: $padding-sm 2rem;
+  font-weight: $font-weight-semibold;
+  color: $color-gradient-mid;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur($blur-frosted-small);
+
+  &:hover {
+    background: $color-white-translucent-strong;
+    box-shadow: $box-shadow-button-hover;
+    outline: none;
+  }
+}
+
+.button-light {
+  @include glassmorphism-button(
+    rgba(255, 255, 255, 0.1),
+    $blur-radius: 40px,
+    $border: 1px solid rgba(255, 255, 255, 0.333)
+  );
+  color: $white;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  padding: 8px 16px;
+  text-shadow: 1px 1px 3px #1c1c1e;
+}
+
+.button-cool-gray {
+  @include glassmorphism-button($glass-tint-gray);
+}
+.button-blue-tint {
+  @include glassmorphism-button($glass-tint-blue);
+}

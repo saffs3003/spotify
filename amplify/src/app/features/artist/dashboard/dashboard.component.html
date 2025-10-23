@@ -1,0 +1,51 @@
+<section>
+  <!-- <p>dashboard of admin works!</p> -->
+
+  <div [ngStyle]="{ 'background-image': coverImage }" class="ArtistCoverImage">
+    <div class="ArtistInfo">
+      <p class="artistTitle">Artist</p>
+
+      <h3 class="artistName">{{ artistName }}</h3>
+      <p class="artistSongs" *ngIf="HorizontalMusicCards.length > 0">
+        {{ HorizontalMusicCards.length }}+
+      </p>
+    </div>
+  </div>
+  <div class="AddSongs">
+    <button class="btn button-light" matButton (click)="openDialog()">
+      Add Songs
+      <app-add-song *ngIf="showSongForm" (close)="closeSongForm()"></app-add-song>
+
+      <mat-icon>add </mat-icon>
+    </button>
+    <button class="btn button-light" matButton (click)="openEventDialog()">
+      <app-add-event *ngIf="showEventForm" (close)="closeEventForm()"></app-add-event>
+      <!-- <button class="btn button-light" matButton (click)="openEventDialog()"> -->
+      Add Event
+      <mat-icon>confirmation_number </mat-icon>
+    </button>
+  </div>
+  <div *ngIf="HorizontalMusicCards.length > 0" class="TopSongs">
+    <h3>Your Songs</h3>
+    <div *ngFor="let song of HorizontalMusicCards">
+      <app-horizontal-music-card
+        [songTitle]="song.title"
+        [artistName]="song.artistName"
+        [coverArt]="'http://localhost:3000/uploads/images/' + song.coverArt"
+      ></app-horizontal-music-card>
+    </div>
+  </div>
+  <div *ngIf="upcomingEvents.length > 0">
+    <h3>Upcomming Events</h3>
+    <div class="upcommingEvents">
+      <div *ngFor="let event of upcomingEvents">
+        <div class="upcommingEvent">
+          <h3>{{ event.showTitle | uppercase }}</h3>
+          <p>{{ event.showDate | date }}</p>
+          <p>{{ event.showLocation }}</p>
+          <p>{{ event.showTime }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

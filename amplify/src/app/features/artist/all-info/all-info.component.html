@@ -1,0 +1,28 @@
+<section>
+  <select [(ngModel)]="approvalStatusFilter" (change)="applyFilters()">
+    <option value="all">All</option>
+    <option value="approved">Approved</option>
+    <option value="pending">Pending</option>
+  </select>
+  <div class="TopSongs">
+    <h3>Songs Collection</h3>
+    <div *ngFor="let song of filteredMusicCards">
+      <app-horizontal-music-card
+        [songTitle]="song.title"
+        [artistName]="song.artistName"
+        [coverArt]="'http://localhost:3000/uploads/images/' + song.coverArt"
+      ></app-horizontal-music-card>
+    </div>
+  </div>
+  <h3>Upcomming Events Collections</h3>
+  <div class="upcommingEvents">
+    <div *ngFor="let event of Events">
+      <div class="upcommingEvent">
+        <h3>{{ event.title | uppercase }}</h3>
+        <p>{{ event.date | date }}</p>
+        <p>{{ event.location }}</p>
+        <p>{{ event.time }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+@import '../../../../assets/sharedVariables';
+@import '../../../../assets/sharedMixins';
+
+.upcommingEvent {
+  @include glassmorphism;
+  width: 200px;
+  border-radius: $radius-lg;
+  padding: clamp($padding-sm, $padding-md, $padding-lg);
+}
+
+.upcommingEvents {
+  display: flex;
+  gap: $gap-md;
+}
+select {
+  background-color: transparent;
+  color: $white;
+  border-radius: $btn-border-radius;
+  padding: $padding-sm;
+  width: 20%;
+}
+
+option {
+  background-color: rgba(255, 255, 255, 0);
+  color: $dark;
+}
+.upcommingEvent:hover {
+  background: linear-gradient(
+    120deg,
+    #d88fbbdf,
+    #7a2b5cc5,
+    rgba(255, 102, 255, 0.548),
+    rgba(150, 98, 192, 0.488),
+    #73f19d59
+  );
+  background-size: 200% 200%;
+  animation: moveGradient 4s ease infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

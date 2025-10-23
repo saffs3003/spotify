@@ -1,0 +1,112 @@
+@import '../../../assets/sharedVariables';
+@import '../../../assets/sharedMixins';
+@import '../../../assets/sharedButtons';
+
+.navbarContainer {
+  @include glassmorphism(
+    $background-color: rgba(255, 255, 255, 0.05),
+    $blur-radius: 20px,
+    $border: 1px solid rgba(255, 255, 255, 0.15),
+    $box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15)
+  );
+  border-radius: 32px;
+  color: $white;
+  font-family: $font-family-base;
+  z-index: 11000;
+  padding: 8px 16px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $white;
+  letter-spacing: 0.4px;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.navbar-toggler {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#searchbar {
+  @include glassmorphism(
+    $background-color: rgba(255, 255, 255, 0.08),
+    $box-shadow: 0 0 10px rgba(0, 0, 0, 0.08)
+  );
+  border-radius: 28px;
+  width: 50%;
+  height: 40px;
+  padding: 4px 12px;
+  align-items: center;
+
+  button {
+    @extend .button-light;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
+}
+input {
+  border: none;
+  color: $white;
+  background-color: transparent;
+
+  font-size: 0.9rem;
+  width: 100%;
+
+  &::placeholder {
+    color: $white;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: $white;
+  }
+}
+
+mat-menu-panel {
+  background: rgba(240, 248, 255, 0.279) !important;
+}
+
+.input-group {
+  min-width: 74px;
+}
+.mat-mdc-menu-panel,
+.mat-menu-after,
+.mat-menu-below,
+matMenu {
+  @include glassmorphism(
+    rgba(255, 255, 255, 0.05),
+    20px,
+    1px solid rgba(255, 255, 255, 0.15),
+    0 16px 30px rgba(0, 0, 0, 0.15)
+  );
+  border-radius: 20px;
+  background-color: transparent !important;
+  color: white;
+}
+.matMenuLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  .navbarContainer {
+    border-radius: 0;
+    z-index: 11000;
+  }
+}

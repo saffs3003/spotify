@@ -1,0 +1,38 @@
+<section class="musicPlayer">
+  <div class="playControls">
+    <button type="button" (click)="previousSong()">
+      <mat-icon>skip_previous</mat-icon>
+    </button>
+    <button type="button" (click)="togglePlayPause()">
+      <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+    </button>
+    <button type="button" (click)="nextSong()">
+      <mat-icon>skip_next</mat-icon>
+    </button>
+  </div>
+
+  <div class="Container">
+    <ng-container *ngIf="playlist.length > 0; else loading">
+      <div class="songContainer">
+        <img [src]="currentSong.imageUrl" [alt]="currentSong.title" />
+        <div class="songInfo">
+          <span class="songTitle">{{ currentSong.title }}</span>
+          <span class="Artist">{{ currentSong.artistName }}</span>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <p>Loading song...</p>
+    </ng-template>
+  </div>
+
+  <div class="audioControls">
+    <button type="button">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button type="button" class="volume-btn">
+      <mat-icon>volume_up</mat-icon>
+    </button>
+  </div>
+</section>

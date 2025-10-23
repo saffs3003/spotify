@@ -1,0 +1,62 @@
+<section class="registerContainer">
+  <section class="registerForm">
+    <div class="roleSelector" *ngIf="NextStepTrack == 1">
+      <div class="chooseRole" *ngFor="let role of roles">
+        <button type="button" class="roleButton" (click)="setRole(role.name)">
+          <img class="roleCover" src="{{ role.img }}" alt="{{ role.name }}" />
+          {{ role.name }}
+        </button>
+      </div>
+    </div>
+    <a class="back" (click)="prevStep()">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <div class="formContainer" *ngIf="NextStepTrack == 2">
+      <div>
+        <img
+          src="../../../../assets/images/portrait-woman-posing-with-universe-projection-texture.jpg"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <form class="Form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <label for="email">Email: </label>
+        <input id="email" type="text" formControlName="email" />
+        <div
+          class="error"
+          *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid"
+        >
+          <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+          <small *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format.</small>
+        </div>
+        <label for="password">Password: </label>
+        <input id="password" type="password" formControlName="password" />
+        <div
+          class="error"
+          *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid"
+        >
+          <small *ngIf="registerForm.get('password')?.errors?.['required']"
+            >Password is required.</small
+          >
+          <small *ngIf="registerForm.get('password')?.errors?.['minlength']"
+            >Minimum 8 characters required.</small
+          >
+        </div>
+        <label for="profile">upload Profile: </label>
+        <input id="profile" type="file" (change)="onProfileSelected($event)" />
+
+        <label for="name">Name: </label>
+        <input id="name" type="text" formControlName="name" />
+
+        <label for="gender">Gender: </label>
+        <select name="gender" id="gender">
+          <option value="female">female</option>
+          <option value="male">male</option>
+        </select>
+
+        <button>submit</button>
+      </form>
+    </div>
+  </section>
+  <span>Already have an Account? &nbsp;<a routerLink="/auth/login">Login</a></span>
+</section>

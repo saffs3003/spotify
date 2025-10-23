@@ -1,0 +1,70 @@
+@import '../../../assets/sharedVariables';
+@import '../../../assets/sharedMixins';
+@import '../../../assets/sharedButtons';
+
+.Card {
+  @include glassmorphism(
+    $background-color: rgba(255, 255, 255, 0.05),
+    $blur-radius: 20px,
+    $border: 1px solid rgba(255, 255, 255, 0.15),
+    $box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15)
+  );
+  height: auto;
+  min-height: 80px;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  padding: clamp(10px, 0.4rem, 1rem);
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  .audioControls {
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+  }
+}
+
+.Song {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(8px, 2vw, 40px);
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 200px;
+}
+
+img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.SongInfo {
+  padding: 0 10px;
+  flex: 1;
+  min-width: 100px;
+
+  .SongName,
+  .ArtistName {
+    margin: 0;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+}
+
+button {
+  background: none;
+  padding: 8px;
+  border: none;
+}
+
+.favorite-active {
+  color: #ff4757 !important;
+}

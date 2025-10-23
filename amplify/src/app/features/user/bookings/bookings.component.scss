@@ -1,0 +1,90 @@
+@import '../../../../assets/sharedVariables';
+@import '../../../../assets/sharedMixins';
+@import '../../../../assets/sharedButtons';
+.concertTicket {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  border-radius: 10px;
+  width: 400px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.ticketHeader {
+  text-align: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+  padding-bottom: 10px;
+}
+
+.artistName {
+  font-size: 1.8rem;
+  margin-top: 5px;
+  color: #ff007f;
+}
+
+.ticketBody {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.ticketInfo p,
+.ticketCode p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.ticketCode {
+  text-align: right;
+}
+
+.seat {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+.concertTicket:hover {
+  background: linear-gradient(
+    45deg,
+    #a80466df,
+    #493240c5,
+    rgba(255, 102, 255, 0.612),
+    rgba(186, 102, 255, 0.514),
+    #50c87859
+  );
+
+  background-size: 200% 200%;
+
+  animation: moveGradient 4s ease infinite;
+}
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.userBookings {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .userBookings {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

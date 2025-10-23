@@ -1,0 +1,274 @@
+@import '../../../../assets/sharedVariables';
+@import '../../../../assets/sharedMixins';
+@import '../../../../assets/sharedButtons';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Form {
+  @include glassmorphism;
+  height: fit-content;
+  min-width: 320px;
+  padding: $padding-lg;
+  width: 80%;
+  border-radius: 0px $btn-border-radius $btn-border-radius 0px;
+  label {
+    font-weight: 500;
+    color: black;
+  }
+}
+.roleCover {
+  min-height: 400px;
+  height: inherit;
+  filter: grayscale(100%);
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+.roleButton {
+  min-height: 400px;
+  padding: 0;
+
+  &:focus {
+    .roleCover {
+      filter: grayscale(0%);
+    }
+  }
+}
+button {
+  background-color: rgb(61, 59, 59);
+  border-radius: 30px;
+  color: white;
+}
+
+.formContainer div {
+  height: 100%;
+}
+
+.formContainer {
+  @include glassmorphism;
+  height: 80%;
+
+  width: 60%;
+  display: flex !important;
+
+  justify-content: center;
+  flex-direction: row;
+  border-radius: 20px;
+  min-width: 200px;
+
+  img {
+    object-fit: cover;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0px 0px 20px;
+  }
+  form {
+    display: flex;
+    gap: 12px;
+    height: 100%;
+    justify-content: center;
+    min-width: 250px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 12px;
+    padding: $padding-lg;
+    padding: clamp(20px, 2rem, 3rem);
+  }
+}
+input,
+select,
+option {
+  @include glassmorphism;
+  background-color: $input-bg;
+  border-radius: 20px;
+  padding: 5px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  &:focus {
+    transform: scale(1.03);
+    transition: transform 0.2s ease-in-out;
+  }
+}
+.roleSelector {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 800px;
+  min-width: 500px;
+  padding: 0;
+
+  .chooseRole {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    button {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: none;
+      padding: 12px;
+    }
+
+    .roleCover {
+      width: 100%;
+
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+}
+
+.controls {
+  position: relative;
+  bottom: 10%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.back {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-white-soft;
+  border-radius: 50%;
+  top: 5%;
+  left: 5%;
+
+  z-index: 100;
+  padding: 4px;
+  mat-icon {
+    font-size: 1.8rem;
+  }
+  animation: StepperMoveLeft 0.4s infinite alternate;
+}
+@keyframes StepperMoveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(10px);
+  }
+}
+
+// .prevStep {
+//   position: relative;
+//   display: inline-block;
+
+//   &:hover {
+//     animation: StepperMoveLeft 0.4s alternate infinite;
+//   }
+// }
+
+// .nextStep {
+//   position: relative;
+//   display: inline-block;
+//   &:hover {
+//     animation: StepperMoveRight 0.4s alternate infinite;
+//   }
+// }
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100vw;
+  background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(116, 1, 152, 0.8), rgba(144, 0, 255, 0) 70.71%),
+    linear-gradient(336deg, rgba(2, 2, 127, 0.8), rgba(0, 0, 255, 0) 70.71%);
+}
+.roleButtonLeft {
+  padding: 0;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.roleButtonRight {
+  padding: 0;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.registerContainer {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  overflow: hidden;
+}
+.registerForm {
+  width: 100%;
+  height: 90%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+span {
+  font-size: $font-weight-base;
+  color: $white;
+  font-weight: $font-weight-base;
+}
+a:hover {
+  text-decoration: underline;
+
+  font-style: italic;
+}
+@media (max-width: 720px) {
+  .formContainer {
+    img {
+      display: none;
+    }
+  }
+
+  .registerForm {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .chooseRole {
+    width: 100%;
+
+    .roleCover {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .Form {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    border-radius: $btn-border-radius;
+  }
+
+  .back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+.error {
+  font-size: medium;
+  color: $errors;
+  line-height: 0;
+  text-shadow: $text-shadow-paragraph;
+}

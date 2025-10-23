@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 300px;
+  //   border: 2px solid red;
+  flex-direction: column;
+}
+canvas {
+  height: 80%;
+  width: 100%;
+  // border: 2px solid rebeccapurple;
+}
+audio {
+  width: 100%;
+}

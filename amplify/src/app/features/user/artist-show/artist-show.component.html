@@ -1,0 +1,12 @@
+<div class="showContainer" *ngFor="let info of Event">
+  <div class="showCard">
+    <h3 class="showTitle">{{ info.showTitle }}</h3>
+    <p class="showDate">Date:{{ info.showDate }}</p>
+    <p class="showLocation">Location:{{ info.showLocation }}</p>
+    <p class="showTime">Time:{{ info.showTime }}</p>
+    <button class="btn button-light" (click)="bookEvent(info)">
+      Book Show
+      <mat-icon>add </mat-icon>
+    </button>
+  </div>
+</div>

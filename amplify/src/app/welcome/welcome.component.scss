@@ -1,0 +1,39 @@
+section {
+  background-image: linear-gradient(120deg, rgba(98, 40, 145, 0.404), rgba(18, 186, 172, 0.238)),
+    url('../../assets/images/spiral.jpg');
+  background-blend-mode: darken;
+  padding: clamp(20px, 4rem, 8rem);
+  object-fit: cover;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 100vh;
+  gap: 20px;
+  z-index: 0;
+}
+
+app-hero-nav {
+  min-width: 80%;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+app-hero {
+  min-width: 80%;
+}
+.container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}

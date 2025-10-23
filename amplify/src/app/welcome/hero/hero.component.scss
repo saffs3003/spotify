@@ -1,0 +1,80 @@
+@import '../../../assets/sharedVariables';
+@import '../../../assets/sharedMixins';
+@import '../../../assets/sharedButtons';
+
+.hero {
+  color: $color-white-soft;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: $gap-md;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: $padding-md;
+
+  button {
+    background: $color-white-translucent-medium;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 14px;
+    padding: $padding-sm 2rem;
+    font-weight: $font-weight-semibold;
+
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur($blur-frosted-small);
+
+    &:hover,
+    &:focus {
+      background: $color-white-translucent-strong;
+      box-shadow: $box-shadow-button-hover;
+      outline: none;
+    }
+  }
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  font-weight: $font-weight-heavy;
+  background-clip: text;
+  text-shadow: 0 0 5px $color-white-translucent-strong, 0 0 10px$color-shadow-dark;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: $color-text-subtitle;
+  margin-bottom: 3rem;
+  max-width: 600px;
+
+  line-height: 1.6;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: $padding-md;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+  color: $color-white-soft;
+  text-shadow: $text-shadow-heading;
+}
+
+p {
+  font-size: $h2-font-size;
+  line-height: 1.5;
+}
+button {
+  color: aliceblue;
+}

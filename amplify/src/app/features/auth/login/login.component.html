@@ -1,0 +1,49 @@
+<section class="loginContainer">
+  <section class="loginForm">
+    <a class="back" (click)="prevStep()">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <div class="formContainer">
+      <div>
+        <img
+          src="../../../../assets/images/portrait-woman-posing-with-universe-projection-texture.jpg"
+          alt="login"
+        />
+      </div>
+      <div class="formWrapper">
+        <form class="Form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <label for="email">Email</label>
+          <input id="email" type="text" formControlName="email" />
+
+          <div
+            class="error"
+            *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
+          >
+            <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</small>
+          </div>
+
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" />
+          <div
+            class="error"
+            *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+          >
+            <small *ngIf="loginForm.get('password')?.errors?.['required']"
+              >Password is required.</small
+            >
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+              >Minimum 8 characters required.</small
+            >
+          </div>
+
+          <button type="submit">Login</button>
+          <div class="error" *ngIf="serverError">
+            <small>{{ serverError }}</small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <span>Don't Have an Account? &nbsp;<a routerLink="/auth/register">Register</a></span>
+</section>
