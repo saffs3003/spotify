@@ -29,6 +29,11 @@ const JWT_SECRET = "supersecretkey";
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 // Register new user
 app.post("/api/register", upload.single("profile"), (req, res) => {
@@ -37,7 +42,7 @@ app.post("/api/register", upload.single("profile"), (req, res) => {
   const hashedPassword = bcrypt.hashSync(password, 8);
 
   const stmt = db.prepare(
-    "INSERT INTO users (name, email, password, role, profile_image) VALUES (?, ?, ?, ?, ?)"
+    "INSERT INTO users (name, email, password, role, profile_image) VALUES (?, ?, ?, ?, ?)",
   );
 
   stmt.run(name, email, hashedPassword, role, profileImagePath, function (err) {
@@ -76,7 +81,7 @@ app.post("/api/login", (req, res) => {
     }
 
     if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" }); // Don't expose if user exists
+      return res.status(401).json({ message: "Invalid credentials" });
     }
 
     const isPasswordValid = bcrypt.compareSync(password, user.password);
@@ -108,7 +113,7 @@ function verifyToken(req, res, next) {
   });
 }
 
-app.get("/api/artist-events/:id", (req, res) => {
+app.get("/api/artist-cevents/:id", (req, res) => {
   const artistId = req.params.id;
 
   db.all(
@@ -119,7 +124,7 @@ app.get("/api/artist-events/:id", (req, res) => {
         return res.status(500).json({ message: "Error fetching events" });
       }
       res.json({ events: rows });
-    }
+    },
   );
 });
 app.post(
@@ -144,9 +149,9 @@ app.post(
           return res.status(500).json({ message: "Error adding song" });
         }
         res.status(200).json({ message: "Song uploaded" });
-      }
+      },
     );
-  }
+  },
 );
 
 //get all songs
@@ -156,7 +161,7 @@ app.get("/api/all-songs", (req, res) => {
     (err, rows) => {
       if (err) return res.status(500).json({ message: "Error fetching songs" });
       res.json(rows);
-    }
+    },
   );
 });
 app.get("/api/all-artists", (req, res) => {
@@ -173,7 +178,7 @@ app.get("/api/approved-songs", (req, res) => {
     (err, rows) => {
       if (err) return res.status(500).json({ message: "Error fetching songs" });
       res.json(rows);
-    }
+    },
   );
 });
 
@@ -184,7 +189,7 @@ app.get("/api/unapproved-songs", (req, res) => {
     (err, rows) => {
       if (err) return res.status(500).json({ message: "Error fetching songs" });
       res.json(rows);
-    }
+    },
   );
 });
 
@@ -307,7 +312,7 @@ app.post("/api/add-events", (req, res) => {
         return res.status(500).json({ message: "Error adding Event" });
       }
       res.status(200).json({ message: "Event Added" });
-    }
+    },
   );
 });
 
@@ -335,7 +340,7 @@ app.get("/api/unapproved-events", (req, res) => {
       if (err)
         return res.status(500).json({ message: "Error fetching Events" });
       res.json(rows);
-    }
+    },
   );
 });
 app.get("/api/all-events", (req, res) => {
@@ -360,7 +365,7 @@ app.get("/api/all-user-bookings", (req, res) => {
       if (err)
         return res.status(500).json({ message: "Error Fetching Bookings" });
       res.json(rows);
-    }
+    },
   );
 });
 
