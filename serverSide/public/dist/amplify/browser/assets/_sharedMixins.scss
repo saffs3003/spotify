@@ -1,0 +1,39 @@
+@mixin glassmorphism-button(
+  $background-color: rgb(255 255 255 / 57.8%),
+  $blur-radius: 20px,
+  $border: 1px solid rgba(255, 255, 255, 0.427),
+  $box-shadow: 0 0 12px rgba(255, 255, 255, 0.15)
+) {
+  background-color: $background-color;
+  backdrop-filter: blur($blur-radius);
+  -webkit-backdrop-filter: blur($blur-radius);
+  border: $border;
+  border-radius: 16px;
+  color: #ffff;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: lighten($background-color, 3%);
+    box-shadow: $box-shadow, 0 0 30px rgba(255, 255, 255, 0.1);
+    transform: scale(1.03) translateZ(2px);
+  }
+
+  &:active {
+    transform: scale(0.98) translateZ(0);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  }
+}
+@mixin glassmorphism(
+  $background-color: rgba(255, 255, 255, 0.05),
+  $blur-radius: 20px,
+  $border: 1px solid rgba(255, 255, 255, 0.15),
+  $box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15)
+) {
+  background-color: $background-color;
+  backdrop-filter: blur($blur-radius);
+  -webkit-backdrop-filter: blur($blur-radius);
+  border: $border;
+  box-shadow: $box-shadow;
+}
